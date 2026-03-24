@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tenacITy — Your Tech Sherpa</title>
+  <meta name="description" content="I'm your tech sherpa. Baltimore IT support and retainer services for individuals and small businesses. $150/month, one call away.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a18;
+      --stone: #f5f2ec;
+      --warm: #e8e2d6;
+      --moss: #4a5c3f;
+      --moss-light: #6b7c5e;
+      --terra: #8c5a2e;
+      --terra-light: #c4895a;
+      --mist: #d4cfc7;
+      --cream: #faf8f4;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      background: rgba(250, 248, 244, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--mist);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--terra); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 2.5rem 5rem;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-text { max-width: 560px; }
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--terra);
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--moss);
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: #4a4a46;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--ink);
+      color: var(--cream);
+      text-decoration: none;
+      padding: 1rem 2rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .hero-cta:hover { background: var(--moss); transform: translateY(-1px); }
+    .hero-cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+      color: var(--terra);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .hero-cta-secondary:hover { border-color: var(--terra); }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mountain-card {
+      background: var(--stone);
+      border: 1px solid var(--mist);
+      padding: 3rem;
+      position: relative;
+      max-width: 420px;
+      width: 100%;
+    }
+    .mountain-card::before {
+      content: '';
+      position: absolute;
+      top: -8px; left: -8px;
+      right: 8px; bottom: 8px;
+      border: 1px solid var(--mist);
+      z-index: -1;
+    }
+    .mountain-peak {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .mountain-card-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terra);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .mountain-card-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .mountain-card-body {
+      font-size: 0.95rem;
+      color: #5a5a56;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .mountain-card-price {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--mist);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--moss);
+      font-family: var(--serif);
+    }
+    .mountain-card-price span {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #7a7a76;
+    }
+
+    /* SECTION BASE */
+    section { padding: 6rem 2.5rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terra);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 1.5rem;
+      height: 1px;
+      background: var(--terra);
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .section-title em { font-style: italic; color: var(--moss); }
+
+    /* ABOUT / HOW */
+    .about { background: var(--stone); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 1.05rem;
+      color: #4a4a46;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 1.25rem;
+    }
+    .pull-quote {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--moss);
+      border-left: 3px solid var(--moss);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+    }
+    .about-details { }
+    .detail-item {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--mist);
+    }
+    .detail-item:first-child { border-top: 1px solid var(--mist); }
+    .detail-num {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--terra-light);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .detail-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8a8a86;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+    .detail-desc { font-size: 0.95rem; color: #5a5a56; font-weight: 300; }
+
+    /* HOW I WORK */
+    .how { background: var(--cream); }
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .how-card {
+      padding: 2rem;
+      background: var(--stone);
+      border: 1px solid var(--mist);
+      position: relative;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .how-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--moss-light);
+    }
+    .how-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .how-card h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .how-card p { font-size: 0.93rem; color: #5a5a56; line-height: 1.7; font-weight: 300; }
+
+    /* OFFER */
+    .offer { background: var(--ink); color: var(--cream); }
+    .offer .section-label { color: var(--terra-light); }
+    .offer .section-label::before { background: var(--terra-light); }
+    .offer .section-title { color: var(--cream); }
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+    .offer-price-block {
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 3rem;
+    }
+    .offer-price {
+      font-family: var(--serif);
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .offer-price-note {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2rem;
+    }
+    .offer-includes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .offer-includes li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      font-weight: 300;
+    }
+    .offer-includes li::before {
+      content: '—';
+      color: var(--terra-light);
+      flex-shrink: 0;
+      font-weight: 400;
+    }
+    .offer-text p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 1.25rem;
+    }
+    .offer-text .pull-quote {
+      color: rgba(255,255,255,0.9);
+      border-left-color: var(--terra-light);
+    }
+    .offer-secondary {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* CONTACT */
+    .contact { background: var(--stone); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8a8a86;
+      font-weight: 500;
+    }
+    .form-group input,
+    .form-group textarea {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--cream);
+      border: 1px solid var(--mist);
+      padding: 0.875rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--moss); }
+    .form-group textarea { min-height: 140px; resize: vertical; }
+    .form-submit {
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      padding: 1rem 2rem;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: background 0.2s;
+      align-self: flex-start;
+    }
+    .form-submit:hover { background: var(--moss); }
+    .contact-info { }
+    .contact-info p {
+      font-size: 1rem;
+      color: #5a5a56;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .contact-detail-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9a9a96;
+      font-weight: 500;
+    }
+    .contact-detail-value {
+      font-size: 1rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 400;
+      border-bottom: 1px solid transparent;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-detail-value:hover { color: var(--terra); border-color: var(--terra); }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .footer-logo span { color: var(--terra-light); }
+    .footer-tagline {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+      font-family: var(--serif);
+    }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow { animation: fadeUp 0.6s ease both 0.1s; }
+    .hero h1 { animation: fadeUp 0.7s ease both 0.25s; }
+    .hero-sub { animation: fadeUp 0.7s ease both 0.4s; }
+    .hero-actions { animation: fadeUp 0.7s ease both 0.55s; }
+    .mountain-card { animation: fadeUp 0.8s ease both 0.3s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; gap: 3rem; }
+      .hero-visual { order: -1; }
+      .about-grid, .how-grid, .offer-grid, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      section { padding: 4rem 1.5rem; }
+      .hero h1 { font-size: 2.5rem; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero h1 { font-size: 2.1rem; }
+      .hero-cta-secondary { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">tenac<span>IT</span>y</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#offer">The offer</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section style="padding:0">
+    <div class="hero">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Baltimore IT · Since 1995</div>
+        <h1>Your tech sherpa.<br><em>I will lighten<br>your load.</em></h1>
+        <p class="hero-sub">Thirty years of IT experience. One person who already knows your setup. No cold starts, no hourly surprises — just someone you call who picks up.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="hero-cta">Get in touch →</a>
+          <a href="#offer" class="hero-cta-secondary">See the offer</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="mountain-card">
+          <span class="mountain-peak">🏔</span>
+          <div class="mountain-card-label">Monthly retainer</div>
+          <div class="mountain-card-title">I know your mountain.</div>
+          <div class="mountain-card-body">Your ISP, your router, your passwords, your history. I carry all of it so you don't have to. When something breaks, we don't start from scratch.</div>
+          <div class="mountain-card-price">$150<span> / month</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="section-label">About</div>
+          <h2 class="section-title">Thirty years.<br>One call.<br><em>No cold starts.</em></h2>
+          <p>My name is Pablo. I've been doing IT for thirty years — and if anything, the problems have gotten more interesting. I started in a traditional help desk role and the job kept evolving.</p>
+          <p>Over time I realized I was doing something different from most IT people. I wasn't just fixing things. I was learning each client's world — their router, their ISP, their email setup, their passwords, their history, their quirks — and carrying that knowledge forward.</p>
+          <div class="pull-quote">"Everyone has an IT infrastructure. Most people have no idea where it is until something goes wrong."</div>
+          <p>That's the problem I solve. The retained knowledge of your setup is the service. You pay for it whether or not anything breaks this month, because it's there when you need it.</p>
+        </div>
+        <div class="about-details">
+          <div class="detail-item">
+            <div class="detail-num">30</div>
+            <div class="detail-label">Years of experience</div>
+            <div class="detail-desc">Started in 1995. The technology changes, the fundamentals don't.</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-num">474</div>
+            <div class="detail-label">Clients served</div>
+            <div class="detail-desc">Individuals, small businesses, nonprofits, and institutions across Baltimore.</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-num">0</div>
+            <div class="detail-label">Cold starts</div>
+            <div class="detail-desc">Retainer clients never re-explain their setup. I already know it.</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-num">$0</div>
+            <div class="detail-label">Hourly clock for retainer clients</div>
+            <div class="detail-desc">Remote support is included. You call, I answer.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW I WORK -->
+  <section class="how" id="how">
+    <div class="section-inner">
+      <div class="section-label">How it works</div>
+      <h2 class="section-title">Simple. Personal.<br><em>Already informed.</em></h2>
+      <div class="how-grid">
+        <div class="how-card">
+          <span class="how-icon">📋</span>
+          <h3>I document everything</h3>
+          <p>Your ISP, router, email setup, backups, devices, websites, passwords — I keep it all on file. Your IT infrastructure, documented and maintained.</p>
+        </div>
+        <div class="how-card">
+          <span class="how-icon">📞</span>
+          <h3>You call, I answer</h3>
+          <p>Call, text, or email. Remote support happens fast — usually the same day, often within the hour. No ticket system. No call center. Just me.</p>
+        </div>
+        <div class="how-card">
+          <span class="how-icon">🛡</span>
+          <h3>I keep watch</h3>
+          <p>Monitored antivirus, automated cloud backup, website and email hosting — I can handle it all, so you're protected even when nothing's broken.</p>
+        </div>
+        <div class="how-card">
+          <span class="how-icon">🏠</span>
+          <h3>On-site when needed</h3>
+          <p>Some things need hands on keyboards. I come to you in Baltimore and surrounding areas. On-site visits billed at $150/hr for retainer clients.</p>
+        </div>
+        <div class="how-card">
+          <span class="how-icon">🤖</span>
+          <h3>AI and what's next</h3>
+          <p>Technology is moving fast. I stay current so you don't have to. Honest guidance on AI, new tools, and what's worth your time and attention.</p>
+        </div>
+        <div class="how-card">
+          <span class="how-icon">🤝</span>
+          <h3>A real relationship</h3>
+          <p>Most of my clients have been with me for years. Many referred their friends and colleagues. That's how this works best — as a long-term partnership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE OFFER -->
+  <section class="offer" id="offer">
+    <div class="section-inner">
+      <div class="section-label">The offer</div>
+      <h2 class="section-title">One number.<br><em>One person.</em></h2>
+      <div class="offer-grid">
+        <div class="offer-price-block">
+          <div class="offer-price">$150</div>
+          <div class="offer-price-note">per month · remote support included</div>
+          <ul class="offer-includes">
+            <li>Unlimited remote support via call, text, or email</li>
+            <li>Full IT infrastructure documentation</li>
+            <li>Monitored antivirus protection (Threatdown)</li>
+            <li>Automated cloud backup monitoring</li>
+            <li>Website &amp; email hosting available</li>
+            <li>AI and technology guidance</li>
+            <li>On-site visits at $150/hr when needed</li>
+          </ul>
+          <div class="offer-secondary">Not on a monthly plan? All support is in-person at $150/hr, one-hour minimum. Happy to help either way — but the monthly relationship is where the real value is.</div>
+        </div>
+        <div class="offer-text">
+          <p>What you're really paying for isn't just the hour I spend fixing your problem. It's the fact that I already know your mountain.</p>
+          <p>I've documented your setup. I know what's changed and what hasn't. I can dial in and get straight to work, because I've been there before.</p>
+          <div class="pull-quote">"I will not just be paid for how many hours I work. I'll be paid for knowing your situation so well that when I do work, it goes fast."</div>
+          <p>The retainer model is better for both of us. You get continuity and a trusted relationship. I get clients who value expertise over hourly minimums.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="contact-inner">
+        <div>
+          <div class="section-label">Contact</div>
+          <h2 class="section-title">First call<br><em>is always free.</em></h2>
+          <p>Tell me what's going on. Whether it's a crisis or a question, I'll give you an honest answer and we'll figure out if working together makes sense.</p>
+          <div class="contact-detail">
+            <span class="contact-detail-label">Email</span>
+            <a href="mailto:pablo@tenacity.it" class="contact-detail-value">pablo@tenacity.it</a>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-label">Website</span>
+            <a href="https://tenacity.it" class="contact-detail-value">tenacity.it</a>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-label">Location</span>
+            <span class="contact-detail-value" style="pointer-events:none;border:none">Baltimore, Maryland</span>
+          </div>
+        </div>
+        <form class="contact-form" action="mailto:pablo@tenacity.it" method="post" enctype="text/plain">
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="First and last name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="message">What's going on?</label>
+            <textarea id="message" name="message" placeholder="Tell me what you're dealing with. No question is too small."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#" class="footer-logo">tenac<span>IT</span>y</a>
+    <div class="footer-tagline">I'm your tech sherpa. I will lighten your load.</div>
+    <div class="footer-copy">© 2025 tenacITy · Baltimore, MD</div>
+  </footer>
+
+</body>
+</html>
